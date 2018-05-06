@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>DZ#4_Шатило_второе_задание</title>
+	<script src="voprosy.js" type="text/javascript"></script>
+	<style>
+		body {
+			background-color: coral;
+			width: 1600px;
+		}
+
+		main {
+			width: 90%;
+			margin: 0 auto;
+			background-color: burlywood;
+		}
+
+		.knopki {
+			width: 350px;
+			height: 30px;
+			border-radius: 30%;
+			background-color: gray;
+			border: red 2px solid;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#teloIgry {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<main>
+		<h1>Игра "Кто хочет миллион?"</h1>
+		<div class="centr">
+			<div id="voprosy"></div>
+			<p></p>
+			<div id="teloIgry">
+
+			</div>
+			<p></p>
+			<input type="button" id="button" value="ЗДесь будут указаны баллы">
+
+		</div>
+
+	</main>
+
+
+	<script type="text/javascript" defer>
+		var i = 0;
+		var score = 0;
+		var div1 = document.createElement("div");
+		document.getElementById("voprosy").appendChild(div1);
+		div1.className = "vopros";
+
+		var div2 = document.createElement("div");
+		document.getElementById("teloIgry").appendChild(div2);
+		div2.className = "knopki";
+		div2.idName = "knopka1";
+		div2.innerText = "Нажать для старт!";
+		var div3 = document.createElement("div");
+		document.getElementById("teloIgry").appendChild(div3);
+		div3.className = "knopki";
+		var div4 = document.createElement("div");
+		document.getElementById("teloIgry").appendChild(div4);
+		div4.className = "knopki";
+		var div5 = document.createElement("div");
+		document.getElementById("teloIgry").appendChild(div5);
+		div5.className = "knopki";
+
+		function scoreW(answer) {
+
+			if (answer == voprosOtvety[i].trueanswer) {
+				score += 100;
+			}
+			return score
+		}
+
+
+		div2.onclick = function() {
+			button.value = (score);
+			div1.innerText = (voprosOtvety[i + 1].qustion);
+			div2.innerText = (voprosOtvety[i + 1].answer1);
+			div3.innerText = (voprosOtvety[i + 1].answer2);
+			div4.innerText = (voprosOtvety[i + 1].answer3);
+			div5.innerText = (voprosOtvety[i + 1].answer4);
+			var answer = 1;
+
+			score = scoreW(answer);
+
+
+			i++;
+		}
+		div3.onclick = function() {
+			button.value = (score);
+			div1.innerText = (voprosOtvety[i + 1].qustion);
+			div2.innerText = (voprosOtvety[i + 1].answer1);
+			div3.innerText = (voprosOtvety[i + 1].answer2);
+			div4.innerText = (voprosOtvety[i + 1].answer3);
+			div5.innerText = (voprosOtvety[i + 1].answer4);
+			var answer = 2;
+
+			score = scoreW(answer);
+
+			i++;
+		}
+		div4.onclick = function() {
+			button.value = (score);
+
+			div1.innerText = (voprosOtvety[i + 1].qustion);
+			div2.innerText = (voprosOtvety[i + 1].answer1);
+			div3.innerText = (voprosOtvety[i + 1].answer2);
+			div4.innerText = (voprosOtvety[i + 1].answer3);
+			div5.innerText = (voprosOtvety[i + 1].answer4);
+			var answer = 3;
+
+			score = scoreW(answer);
+
+
+			i++;
+		}
+		div5.onclick = function() {
+			button.value = (score);
+			div1.innerText = (voprosOtvety[i + 1].qustion);
+			div2.innerText = (voprosOtvety[i + 1].answer1);
+			div3.innerText = (voprosOtvety[i + 1].answer2);
+			div4.innerText = (voprosOtvety[i + 1].answer3);
+			div5.innerText = (voprosOtvety[i + 1].answer4);
+			var answer = 4;
+
+			score = scoreW(answer);
+
+			i++;
+		}
+
+
+		// var score = 100;
+		//for (var i = 0; i !== voprosOtvety.length; i++) {
+		//	do { //Выводим первый вопрос
+		//		ok = false;
+		//var userAnsw = prompt(voprosOtvety[i].qustion + voprosOtvety[i].answer1 + voprosOtvety[i].answer2 + voprosOtvety[i].answer3 + voprosOtvety[i].answer4);
+
+
+		//		if (userAnsw == -1) {
+		//			break;
+		//		} else {
+		//			ok = isAnswer(userAnsw);
+		//		}
+
+		//	} while (!ok);
+		//	if (userAnsw == -1) {
+		//		break;
+		//	}
+		//	if (userAnsw == voprosOtvety[i].trueanswer) score = 100 * i + score;
+		//}
+		//------------
+		//function isAnswer(userAnsw) {
+		//	if (isNaN(userAnsw) || !isFinite(userAnsw)) {
+		//		alert('Вы ввели недопустимый символ');
+		//		return false;
+		//	} else if (userAnsw < 1 || userAnsw > 4) {
+		//		alert('Ваше число выходит из допустимого диапозона');
+		//		return false;
+		//	}
+		//	return true;
+
+		//}
+		//alert("Спасибо за игру! Ваш выигрыш - " + score + '$')
+
+	</script>
+</body>
+
+</html>
